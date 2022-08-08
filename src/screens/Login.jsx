@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "../styles/login.css";
-import BasicCard from '../components/card';
 import InfoModal from "../components/modal";
 
 function Login() {
