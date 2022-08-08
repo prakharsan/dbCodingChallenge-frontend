@@ -1,8 +1,8 @@
 import React from "react";
-import Login from './screens/Login';
+import Tradestable from './components/Tradestable';
 
 const App = () => {
-  return <Login />
+  return <Tradestable />
 };
 
 export default App;
