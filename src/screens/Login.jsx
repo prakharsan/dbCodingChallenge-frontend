@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import "../styles/styles.css";
+import "../styles/login.css";
 import BasicCard from '../components/card';
 
-function App() {
+function Login() {
   const navigate = useNavigate();
 
   // React States
@@ -95,4 +95,4 @@ function App() {
   );
 }
 
-export default App;
+export default Login;
