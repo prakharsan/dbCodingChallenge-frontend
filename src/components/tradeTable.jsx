@@ -1,14 +1,25 @@
-import * as React from "react";
-import Table from "@mui/material/Table";
-import TableBody from "@mui/material/TableBody";
-import TableCell from "@mui/material/TableCell";
-import TableContainer from "@mui/material/TableContainer";
-import TableHead from "@mui/material/TableHead";
-import TableRow from "@mui/material/TableRow";
-import Paper from "@mui/material/Paper";
+import * as React from 'react';
+import { useState } from 'react';
+import Table from '@mui/material/Table';
+import TableBody from '@mui/material/TableBody';
+import TableCell from '@mui/material/TableCell';
+import TableContainer from '@mui/material/TableContainer';
+import TableHead from '@mui/material/TableHead';
+import TableRow from '@mui/material/TableRow';
+import Paper from '@mui/material/Paper';
+import InfoModal from '../components/modal';
 
 export default function BasicTable(props) {
+    const [ modal, setModal] = useState(false);
+    const [modalId, setModalId] = useState();
+
+    function toggleModal(id) {
+        setModalId(id);
+        setModal(!modal);
+    }
   return (
+    <>
+    {modal && <InfoModal id={modalId} close={toggleModal}/>}
     <TableContainer component={Paper}>
       <Table
         sx={{
@@ -34,7 +45,8 @@ export default function BasicTable(props) {
           {props.data.map((row, i) => (
             <TableRow
               key={row.id}
-              sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+              sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+              onClick={() => toggleModal(row.securityId)}
             >
               <TableCell component="th" scope="row">
                 {row.id}
@@ -54,5 +66,6 @@ export default function BasicTable(props) {
         </TableBody>
       </Table>
     </TableContainer>
+    </>
   );
 }
