@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import InfoModal from '../components/modal';
 import "../styles/styles.css";
 
 function App() {
@@ -70,6 +71,7 @@ function App() {
       <div className="login-text">FIC Bond Tracker</div>
       <div className="login-form">
         <div className="title">Sign In</div>
+        <InfoModal/>
         {/* Login Form */}
         <div className="form">
           <form onSubmit={handleSubmit}>
