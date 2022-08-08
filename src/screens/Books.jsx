@@ -19,8 +19,8 @@ const Books = () => {
   return (
     <div>
         <h1> Welcome to Bond Tracker!</h1>
-        {database.map(data => { 
-            return (<BookCard bookId={data.id} bookName={data.bookName} />)
+        {database.map((data, i) => { 
+            return (<BookCard bookId={data.id} bookName={data.bookName} key={i} />)
         })}
     </div>
   )
