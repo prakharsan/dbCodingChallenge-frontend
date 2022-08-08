@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "../styles/styles.css";
+import BasicCard from '../components/card';
 
 function App() {
   const navigate = useNavigate();
@@ -67,7 +68,8 @@ function App() {
 
   return (
     <div className="app">
-      <div className="login-text">FIC Bond Tracker</div>
+      <BasicCard bookId='1' />
+      {/* <div className="login-text">FIC Bond Tracker</div> */}
       <div className="login-form">
         <div className="title">Sign In</div>
         {/* Login Form */}
