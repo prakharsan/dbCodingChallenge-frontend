@@ -51,6 +51,8 @@ function Login() {
         // Invalid password
         setErrorMessages({ name: "pass", message: errors.pass });
       } else {
+        localStorage.setItem('username', userData.username);
+        localStorage.setItem('password', userData.password);
         setIsSubmitted(true);
       }
     } else {
