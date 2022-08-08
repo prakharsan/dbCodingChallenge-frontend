@@ -1,16 +1,14 @@
-import React, { useState } from "react";
+import React from "react";
 import Modal from "react-modal";
 import { Stack, Button } from "@mui/material";
 
 Modal.setAppElement("#root");
 function InfoModal(props) {
-  const [modalIsOpen, setModalIsOpen] = useState(false);
   return (
     <div>
-      <button onClick={() => setModalIsOpen(true)}>Open modal</button>
       <Modal
-        isOpen={modalIsOpen}
-        onRequestClose={() => setModalIsOpen(false)}
+        isOpen
+        onRequestClose={() => props.close()}
         style={{
           overlay: {
             backgroundColor: 'grey',
@@ -25,19 +23,15 @@ function InfoModal(props) {
           },
         }}
       >
-        <h1>{props.name}</h1>
-        <hr/>
-        <h3>ISIN: {props.isin}</h3>
-        <h3>CUSIP: {props.cusip}</h3>
-        <h3>Issuer: {props.issuer}</h3>
-        <h3>Maturity Date: {props.maturityDate.toString()}</h3>
-        <h3>Coupon: {props.coupon}</h3>
-        <h3>Type: {props.type}</h3>
-        <h3>Face Value: {props.faceValue}</h3>
-        <h3>Status: {props.status}</h3>
+        <h1>{props.id}</h1>
+        {/* Need to implement a getSecurityDetailsById in the backend */}
+        <h2>Name: </h2>
+        <h2>Quantity: </h2>
+        <h2>Price: </h2>
+        <h2>Maturity Date: </h2>
         <Stack spacing={2} direction='row'>
-        <Button variant='contained' onClick={() => setModalIsOpen(false)}>Close</Button>
-        <Button variant='contained' onClick={() => setModalIsOpen(false)}>Review</Button>
+        <Button variant='contained' onClick={() => props.close()}>Close</Button>
+        <Button variant='contained' onClick={() => props.close()}>Review</Button>
         </Stack>
       </Modal>
     </div>

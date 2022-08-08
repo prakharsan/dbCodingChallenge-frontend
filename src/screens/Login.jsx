@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "../styles/login.css";
-import InfoModal from "../components/modal";
 
 function Login() {
   const navigate = useNavigate();
@@ -71,17 +70,6 @@ function Login() {
       <div className="login-text">FIC Bond Tracker</div>
       <div className="login-form">
         <div className="title">Sign In</div>
-        <InfoModal
-          name="Reliance"
-          isin="US-000402625-0"
-          cusip="CUSIP 084664BL4"
-          issuer="ABC Ltd."
-          maturityDate={new Date()}
-          coupon="0"
-          type="Government"
-          faceValue="200 INR"
-          status="Overdue"
-        />
         {/* Login Form */}
         <div className="form">
           <form onSubmit={handleSubmit}>
