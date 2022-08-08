@@ -1,17 +1,24 @@
-import * as React from 'react';
-import Table from '@mui/material/Table';
-import TableBody from '@mui/material/TableBody';
-import TableCell from '@mui/material/TableCell';
-import TableContainer from '@mui/material/TableContainer';
-import TableHead from '@mui/material/TableHead';
-import TableRow from '@mui/material/TableRow';
-import Paper from '@mui/material/Paper';
+import * as React from "react";
+import Table from "@mui/material/Table";
+import TableBody from "@mui/material/TableBody";
+import TableCell from "@mui/material/TableCell";
+import TableContainer from "@mui/material/TableContainer";
+import TableHead from "@mui/material/TableHead";
+import TableRow from "@mui/material/TableRow";
+import Paper from "@mui/material/Paper";
 
 export default function BasicTable(props) {
   return (
     <TableContainer component={Paper}>
-        {console.log('This is basic table props', props)}
-      <Table sx={{ minWidth: 650 }} aria-label="simple table">
+      <Table
+        sx={{
+          minWidth: 650,
+          "& .MuiTableRow-root:hover": {
+            backgroundColor: "primary.light",
+          },
+        }}
+        aria-label="simple table"
+      >
         <TableHead>
           <TableRow>
             <TableCell>Trade Id</TableCell>
@@ -27,7 +34,7 @@ export default function BasicTable(props) {
           {props.data.map((row, i) => (
             <TableRow
               key={row.id}
-              sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+              sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
             >
               <TableCell component="th" scope="row">
                 {row.id}
@@ -36,8 +43,12 @@ export default function BasicTable(props) {
               <TableCell align="right">{row.quantity}</TableCell>
               <TableCell align="right">{row.status}</TableCell>
               <TableCell align="right">{row.price}</TableCell>
-              <TableCell align="right">{row.tradeDate.toString()}</TableCell>
-              <TableCell align="right">{row.settlementDate.toString()}</TableCell>
+              <TableCell align="right">
+                {row.tradeDate.toString()}
+              </TableCell>
+              <TableCell align="right">
+                {row.settlementDate.toString()}
+              </TableCell>
             </TableRow>
           ))}
         </TableBody>
