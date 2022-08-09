@@ -1,10 +1,14 @@
 import React from "react";
 import Modal from "react-modal";
-import { Stack, Button, Table,
+import {
+  Stack,
+  Button,
+  Table,
   TableHead,
   TableRow,
   TableCell,
-  TableBody } from "@mui/material";
+  TableBody,
+} from "@mui/material";
 
 Modal.setAppElement("#root");
 function InfoModal(props) {
