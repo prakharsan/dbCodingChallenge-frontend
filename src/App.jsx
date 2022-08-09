@@ -12,7 +12,7 @@ const App = () => {
     <Header />
     <main>
     <Routes>
-      { localStorage.getItem('username') ? <Route path="/" element={<Books />} /> : <Route path="/" element={<Login />} /> }
+      <Route path="/" element={<Login />} />
       <Route path="/books" element={<Books />} />
       <Route path="/trades/:bookId" element={<Trades />} />
     </Routes>
