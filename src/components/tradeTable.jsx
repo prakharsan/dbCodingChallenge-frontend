@@ -21,7 +21,15 @@ export default function BasicTable(props) {
     <>
     {modal && <InfoModal id={modalId} close={toggleModal}/>}
     <TableContainer component={Paper}>
-      <Table sx={{ minWidth: 650 }} aria-label="simple table">
+      <Table
+        sx={{
+          minWidth: 650,
+          "& .MuiTableRow-root:hover": {
+            backgroundColor: "primary.light",
+          },
+        }}
+        aria-label="simple table"
+      >
         <TableHead>
           <TableRow>
             <TableCell>Trade Id</TableCell>
@@ -47,8 +55,12 @@ export default function BasicTable(props) {
               <TableCell align="right">{row.quantity}</TableCell>
               <TableCell align="right">{row.status}</TableCell>
               <TableCell align="right">{row.price}</TableCell>
-              <TableCell align="right">{row.tradeDate.toString()}</TableCell>
-              <TableCell align="right">{row.settlementDate.toString()}</TableCell>
+              <TableCell align="right">
+                {row.tradeDate.toString()}
+              </TableCell>
+              <TableCell align="right">
+                {row.settlementDate.toString()}
+              </TableCell>
             </TableRow>
           ))}
         </TableBody>
