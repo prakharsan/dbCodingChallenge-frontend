@@ -16,6 +16,7 @@ const Footer = () => {
             <Typography variant="p" component="div" sx={{ flexGrow: 1 }}>
               Copyright © 2022 FIC Portal
             </Typography>
+            <div style={{display: 'flex'}}>
             <Icon size="large" edge="start" color="inherit" sx={{ mr: 2 }}>
               <ContactMailIcon />
             </Icon>
@@ -25,6 +26,7 @@ const Footer = () => {
                 ficadmin@fic.com
               </a>
             </Typography>
+            </div>
           </Toolbar>
         </AppBar>
       </Box>
