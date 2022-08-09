@@ -39,13 +39,14 @@ export default function BasicTable(props) {
             <TableCell align="right">Price</TableCell>
             <TableCell align="right">Trade Date</TableCell>
             <TableCell align="right">Settlement Date</TableCell>
+            <TableCell align="right">Time to Mature</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
           {props.data.map((row, i) => (
             <TableRow
               key={row.id}
-              sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+              sx={{ '&:last-child td, &:last-child th': { border: 0 }, backgroundColor: row.timeToMature <= 2 ? "#cc3300" : row.timeToMature <= 5 ? "#ffcc00" : "#339900" }}
               onClick={() => toggleModal(row.securityId)}
             >
               <TableCell component="th" scope="row">
@@ -61,6 +62,7 @@ export default function BasicTable(props) {
               <TableCell align="right">
                 {row.settlementDate.toString()}
               </TableCell>
+              <TableCell align="right">{row.timeToMature}</TableCell>
             </TableRow>
           ))}
         </TableBody>
