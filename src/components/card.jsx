@@ -1,8 +1,8 @@
-import * as React from 'react';
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
+import * as React from "react";
+import Card from "@mui/material/Card";
+import CardContent from "@mui/material/CardContent";
+import Button from "@mui/material/Button";
+import Typography from "@mui/material/Typography";
 import { useNavigate } from "react-router-dom";
 
 export default function BookCard(props) {
@@ -16,7 +16,13 @@ export default function BookCard(props) {
         <Typography variant="h3" component="div">
           {props.bookName}
         </Typography>
-        <Button variant="contained" size="small" onClick={() => navigate(`/trades/${props.bookId}`)}>View Trades</Button>
+        <Button
+          variant="contained"
+          size="small"
+          onClick={() => navigate(`/trades/${props.bookId}`)}
+        >
+          View Trades
+        </Button>
       </CardContent>
     </Card>
   );

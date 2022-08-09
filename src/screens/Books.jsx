@@ -47,7 +47,7 @@ const Books = () => {
         <Grid container spacing={2}>
           {database.map((data, i) => {
             return (
-              <Grid item xs={4}>
+              <Grid item xs={4} key={i}>
                 <Item>
                   <BookCard bookId={data.id} bookName={data.bookName} key={i} />
                 </Item>

@@ -6,11 +6,14 @@ import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import Icon from "@mui/material/Icon";
 import MenuBook from "@mui/icons-material/MenuBook";
+import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
+import RequestQuoteIcon from '@mui/icons-material/RequestQuote';
 import { useLocation, useNavigate, Link } from "react-router-dom";
 
 export default function Header(props) {
   const location = useLocation();
   const navigate = useNavigate();
+  const path = location.pathname.split("/")[1];
   function logoutHandler() {
     localStorage.removeItem("username");
     localStorage.removeItem("password");
@@ -27,10 +30,10 @@ export default function Header(props) {
             aria-label="menu"
             sx={{ mr: 2 }}
           >
-            <MenuBook />
+            {path === "trades" ? <RequestQuoteIcon /> : path === "books" ? <MenuBook /> : <AttachMoneyIcon />}
           </Icon>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            {location.pathname.split("/")[1] === "trades" ? (
+            {path === "trades" ? (
               <Link
                 to="/books"
                 style={{ textDecoration: "none", color: "white" }}

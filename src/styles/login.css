@@ -7,7 +7,7 @@
     gap: 20px;
     height: 100vh;
     font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
-    background-color: #f8f9fd;
+    background-image: linear-gradient(rgba(255,255,255,.7), rgba(255,255,255,.7)), url("back.jpg");
   }
   
   input[type="text"],
@@ -49,6 +49,7 @@
     right:40%;
     bottom:45%;
     font-size: 500%;
+    font-weight: bold;
   }
   
   .list-container {
