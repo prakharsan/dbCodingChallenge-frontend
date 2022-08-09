@@ -40,7 +40,10 @@ function Login() {
     //Prevent page reload
     event.preventDefault();
 
-    var { uname, pass } = document.forms[0];
+    let { uname, pass } = document.forms[0];
+
+    /*
+    ----- OLD CODE FOR DUMMY AUTHENTICATION -----
 
     // Find user login info
     const userData = database.find((user) => user.username === uname.value);
@@ -59,6 +62,42 @@ function Login() {
       // Username not found
       setErrorMessages({ name: "uname", message: errors.uname });
     }
+
+    */
+
+    //---- NEW CODE FOR BACKEND SUPPORTED AUTHENTICATION ----
+
+    //Authenticate the user with the backend and generate token:
+    const backendURL = "localhost:8081";
+
+    fetch(backendURL+"/api/token", {
+      // Adding body or contents to send
+      body: JSON.stringify({
+          "username": uname,
+          "password" : pass
+      }),
+      headers: {
+          'Content-Type': 'application/json',
+      },
+      // Adding method type
+      method: "POST",
+    })
+    // Converting to JSON
+    .then((response) => {
+    response.json().then((data)=> {
+            //console.log(data)
+            //If login is successful, then dispatch the token and currentUser data into the store
+            if(response.status===200){
+                console.log("Success");
+                console.log(response);
+            }
+            else{
+                console.log("Failure");
+                console.log(response);
+            }
+            
+        });
+    })
   };
 
   // Generate JSX code for error message
