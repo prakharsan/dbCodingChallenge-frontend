@@ -39,6 +39,7 @@ export default function BasicTable(props) {
             <TableCell align="right">Price</TableCell>
             <TableCell align="right">Trade Date</TableCell>
             <TableCell align="right">Settlement Date</TableCell>
+            <TableCell align="right">Time to Mature</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -61,6 +62,7 @@ export default function BasicTable(props) {
               <TableCell align="right">
                 {row.settlementDate.toString()}
               </TableCell>
+              <TableCell align="right">{row.timeToMature}</TableCell>
             </TableRow>
           ))}
         </TableBody>
