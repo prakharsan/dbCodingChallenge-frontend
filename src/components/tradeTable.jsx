@@ -45,7 +45,7 @@ export default function BasicTable(props) {
           {props.data.map((row, i) => (
             <TableRow
               key={row.id}
-              sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+              sx={{ '&:last-child td, &:last-child th': { border: 0 }, backgroundColor: row.timeToMature <= 2 ? "#cc3300" : row.timeToMature <= 5 ? "#ffcc00" : "#339900" }}
               onClick={() => toggleModal(row.securityId)}
             >
               <TableCell component="th" scope="row">
